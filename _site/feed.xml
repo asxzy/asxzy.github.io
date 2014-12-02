@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>asxzy Blog</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>asxzy.net/</link>
+    <atom:link href="asxzy.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 02 Dec 2014 17:22:24 -0500</pubDate>
+    <lastBuildDate>Tue, 02 Dec 2014 17:22:24 -0500</lastBuildDate>
+    <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 02 Dec 2014 12:18:29 -0500</pubDate>
+        <link>asxzy.net/jekyll/update/2014/12/02/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">asxzy.net/jekyll/update/2014/12/02/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>git中强制使用https取代git协议</title>
+        <description>&lt;p&gt;实验室电脑在一个诡异的防火墙及代理网关之后，导致使用git时经常无法连接git协议。但https访问却正常。git设计的时候已经考虑到了这些问题，在实际使用过程中，可以将https配置为默认协议。命令很简单：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+git config--global url.&quot;https://&quot;.inseadOf git://
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;命令输入之后，你的.gitconfig文件里就会多出以下两行
+&lt;code&gt;
+[url &quot;https://&quot;]
+    insteadOf = git:
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这样在某些无法访问git协议的环境中也可以正常的clone了。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 15 Sep 2013 12:47:00 -0400</pubDate>
+        <link>asxzy.net/2013/09/15/force-git-with-https-instead-of-git-protocol.html</link>
+        <guid isPermaLink="true">asxzy.net/2013/09/15/force-git-with-https-instead-of-git-protocol.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>博客从wordpress迁移至Octopress</title>
+        <description>&lt;p&gt;今天将博客从Wordpress迁移至Octopress，静态页面好处多多，写文章也可以抛开html，更加简洁并便于维护。遗憾的是，旧的评论导入不变，踌躇了好久，最终还是放弃了。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Sep 2013 14:12:00 -0400</pubDate>
+        <link>asxzy.net/2013/09/08/migrated-to-octopress.html</link>
+        <guid isPermaLink="true">asxzy.net/2013/09/08/migrated-to-octopress.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>最大流算法之一——福特富尔克森方法</title>
+        <description>&lt;p&gt;最近在复习Dr. Tsin的03-060554 Advance Algorithm，其中最大流的算法一直迷迷糊糊，索性边学边写，记录下来。&lt;/p&gt;
+
+&lt;p&gt;问题：
+在图论中，网络流 (Network Flow) 是指在一个每条边都有容量 (Capacity) 的有向图分配流，使一条边的流量不会超过它的容量。（边有附带容量的图称为网络。）一道流必须符合一个结点的进出的流量相同的限制，除非这是一个源点 (Source) ──有较多向外的流，或是一个汇点 (Sink) ──有较多向内的流。一个网络可以用来模拟道路系统的交通量、管中的液体、电路中的电流或类似一些东西在一个结点 (Node) 的网络中游动的任何事物。&lt;/p&gt;
+
+&lt;p&gt;最大流问题即在该网络汇总，流量从A到B，如何选择路径、分配经过路径的流量可以达到总流量最大的要求。&lt;/p&gt;
+
+&lt;p&gt;计算最大流最基本的方法是福特富尔克森方法（The Ford-Fulkerson method）、埃德蒙兹卡普算法（The Edmonds-Karp algorithm）&lt;/p&gt;
+
+&lt;p&gt;福特富尔克森方法（The Ford-Fulkerson method）:
+Ford-Fulkerson方法依赖于三种重要思想：残留网络，增广路径和割。
+Ford-Fulkerson方法是一种迭代的方法。开始时，对所有的u，v∈V有f(u,v)=0，即初始状态时流的值为0。
+在每次迭代中，可通过寻找一条“增广路径”来增加流值。增广路径可以看成是从源点s到汇点t之间的一条路径，沿该路径可以压入更多的流，从而增加流的值。
+反复进行这一过程，直至增广路径都被找出来，根据最大流最小割定理，当不包含增广路径时，f是G中的一个最大流。
+在算法导论中给出的Ford-Fulkerson实现代码如下：&lt;/p&gt;
+
+&lt;p&gt;FORD_FULKERSON(G,s,t)
+&lt;code&gt;
+for each edge(u,v)∈E[G]
+     do f[u,v] &amp;lt;— 0
+         f[v,u] &amp;lt;— 0
+while there exists a path p from s to t in the residual network Gf
+     do cf(p) &amp;lt;— min{ cf(u,v) : (u,v) is in p }
+     for each edge(u,v) in p
+         do f[u,v] &amp;lt;— f[u,v]+cf(p)         //对于在增广路径上的正向的边，加上增加的流
+             f[v,u] &amp;lt;— -f[u,v]                //对于反向的边，根据反对称性求
+&lt;/code&gt;
+相比于代码，我更喜欢用数据流来表示和理解一个算法。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2013/04/1.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/2.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/3.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/4.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/5.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/6.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/7.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/8.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/9.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/10.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/11.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/12.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/13.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/14.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/uploads/2013/04/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;伪码及配图来自于互联网。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 20 Apr 2013 00:00:00 -0400</pubDate>
+        <link>asxzy.net/2013/04/20/ff-algorithm.html</link>
+        <guid isPermaLink="true">asxzy.net/2013/04/20/ff-algorithm.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>关于开睿思费校园网流量的解释</title>
+        <description>&lt;!--:zh--&gt;
+&lt;p&gt;一直以来，很多同学纠结于睿思费流量问题。现在我将服务器端配置及代码中ip判断部分公布，安定人心。&lt;/p&gt;
+
+&lt;p&gt;配置文件
+&lt;code&gt;
+$xd_ips = array ( //西电IP地址范围
+array(&#39;127.0.0.1&#39;,&#39;127.0.0.1&#39;),//本机测试
+array(&#39;202.117.112.0&#39;,&#39;202.117.127.255&#39;),
+array(&#39;210.27.0.0&#39;,&#39;210.27.15.255&#39;),
+array(&#39;219.245.64.0&#39;,&#39;219.245.127.255&#39;),
+array(&#39;115.155.0.0&#39;,&#39;115.155.63.255&#39;),
+array(&#39;222.25.128.0&#39;,&#39;222.25.191.255&#39;),
+array(&#39;219.244.112.0&#39;,&#39;219.244.127.255&#39;),
+);
+&lt;/code&gt;
+tracker中判断部分
+&lt;code&gt;
+if (!validip($ip, $xd_ips))
+{
+err(&quot;你的IP地址: $ip 不允许访问本网站!&quot;);
+}
+&lt;/code&gt;
+防火墙配置
+&lt;code&gt;
+-A INPUT -s 202.117.112.0/255.255.240.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 210.27.0.0/255.255.240.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 219.245.64.0/255.255.192.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 115.155.0.0/255.255.192.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 222.25.128.0/255.255.192.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 219.244.112.0/255.255.240.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+&lt;/code&gt;
+nginx配置
+&lt;code&gt;
+allow 202.117.112.0/20;
+allow 210.27.0.0/20;
+allow 219.245.64.0/18;
+allow 115.155.0.0/18;
+allow 222.25.128.0/18;
+allow 219.244.112.0/20;
+deny all;
+&lt;/code&gt;
+所以说，服务器端是不可能返回非西电IP，tracker返回的种子列表均为合法西电IP。若有意外产生外网流量情况发生，请关闭UT的DHT发现和本地用户交换。或限制本地UT只接受西电和ipv6连接。
+将下列文件保存为ipfilter.dat并存入utorrent目录下即可，安装版请放入%AppData%\uTorrent目录下（我的电脑，地址栏内如数上述目录即可打开）；绿色版直接放入utorrent安装目录。
+&lt;code&gt;
+0.0.0.0 - 115.155.0.0
+115.155.63.255 - 202.117.112.0
+202.117.127.255 - 210.27.0.0
+210.27.15.255 - 219.244.112.0
+219.244.127.255 - 219.245.64.0
+219.245.127.255 - 222.25.128.0
+222.25.191.255 - 255.255.255.255
+0::0 - 2001:0:ffff:ffff:ffff:ffff:ffff:ffff 
+2002::0-ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+&lt;/code&gt;&lt;!--:--&gt;&lt;!--:en--&gt;一直以来，很多同学纠结于睿思费流量问题。现在我将服务器端配置及代码中ip判断部分公布，安定人心。&lt;/p&gt;
+
+&lt;p&gt;配置文件
+&lt;code&gt;
+$xd_ips = array ( //西电IP地址范围
+array(&#39;127.0.0.1&#39;,&#39;127.0.0.1&#39;),//本机测试
+array(&#39;202.117.112.0&#39;,&#39;202.117.127.255&#39;),
+array(&#39;210.27.0.0&#39;,&#39;210.27.15.255&#39;),
+array(&#39;219.245.64.0&#39;,&#39;219.245.127.255&#39;),
+array(&#39;115.155.0.0&#39;,&#39;115.155.63.255&#39;),
+array(&#39;222.25.128.0&#39;,&#39;222.25.191.255&#39;),
+array(&#39;219.244.112.0&#39;,&#39;219.244.127.255&#39;),
+);
+&lt;/code&gt;
+tracker中判断部分
+&lt;code&gt;
+if (!validip($ip, $xd_ips))
+{
+err(&quot;你的IP地址: $ip 不允许访问本网站!&quot;);
+}
+&lt;/code&gt;
+防火墙配置
+&lt;code&gt;
+-A INPUT -s 202.117.112.0/255.255.240.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 210.27.0.0/255.255.240.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 219.245.64.0/255.255.192.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 115.155.0.0/255.255.192.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 222.25.128.0/255.255.192.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s 219.244.112.0/255.255.240.0 -i eth1 -p tcp -m tcp --dport 80 -j ACCEPT
+&lt;/code&gt;
+nginx配置
+&lt;code&gt;
+allow 202.117.112.0/20;
+allow 210.27.0.0/20;
+allow 219.245.64.0/18;
+allow 115.155.0.0/18;
+allow 222.25.128.0/18;
+allow 219.244.112.0/20;
+deny all;
+&lt;/code&gt;
+所以说，服务器端是不可能返回非西电IP，tracker返回的种子列表均为合法西电IP。若有意外产生外网流量情况发生，请关闭UT的DHT发现和本地用户交换。或限制本地UT只接受西电和ipv6连接。
+将下列文件保存为ipfilter.dat并存入utorrent目录下即可，安装版请放入%AppData%\uTorrent目录下（我的电脑，地址栏内如数上述目录即可打开）；绿色版直接放入utorrent安装目录。
+&lt;code&gt;
+0.0.0.0 - 115.155.0.0
+115.155.63.255 - 202.117.112.0
+202.117.127.255 - 210.27.0.0
+210.27.15.255 - 219.244.112.0
+219.244.127.255 - 219.245.64.0
+219.245.127.255 - 222.25.128.0
+222.25.191.255 - 255.255.255.255
+0::0 - 2001:0:ffff:ffff:ffff:ffff:ffff:ffff 
+2002::0-ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+&lt;/code&gt;&lt;!--:--&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 12 Mar 2012 00:00:00 -0400</pubDate>
+        <link>asxzy.net/2012/03/12/iptables-in-xdrs.html</link>
+        <guid isPermaLink="true">asxzy.net/2012/03/12/iptables-in-xdrs.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>ip address for Google and facebook and twitter</title>
+        <description>&lt;!--:zh--&gt;
+&lt;p&gt;vpn翻墙必备，谷歌facebook和twitter的ip段，为了防止DNS污染，建议省用8.8.8.8并通过科学上网渠道解析域名
+```bash
+173.194.0.0/16
+198.108.100.192/28
+209.185.108.128/25
+209.85.128.0/17
+216.109.75.80/28
+216.239.32.0/19
+216.33.229.144/29
+216.33.229.160/29
+64.233.160.0/19
+64.41.221.192/28
+64.68.64.64/26
+64.68.80.0/21
+64.68.88.0/21
+66.102.0.0/20
+66.249.64.0/19
+70.32.128.0/19
+72.14.192.0/18
+74.125.0.0/16
+173.252.64.0/18
+204.15.20.0/22
+66.220.144.0/20
+69.171.224.0/19
+69.63.176.0/20
+74.119.76.0/22
+199.16.156.0/22
+199.59.148.0/22
+203.208.32.0/19&lt;/p&gt;
+
+&lt;p&gt;route 173.194.0.0 255.255.0.0
+route 198.108.100.192 255.255.255.240
+route 209.185.108.128 255.255.255.128
+route 209.85.128.0 255.255.128.0
+route 216.109.75.80 255.255.255.240
+route 216.239.32.0 255.255.224.0
+route 216.33.229.144 255.255.255.248
+route 216.33.229.160 255.255.255.248
+route 64.233.160.0 255.255.224.0
+route 64.41.221.192 255.255.255.240
+route 64.68.64.64 255.255.255.192
+route 64.68.80.0 255.255.248.0
+route 64.68.88.0 255.255.248.0
+route 66.102.0.0 255.255.240.0
+route 66.249.64.0 255.255.224.0
+route 70.32.128.0 255.255.224.0
+route 72.14.192.0 255.255.192.0
+route 74.125.0.0 255.255.0.0
+route 173.252.64.0 255.255.192.0
+route 204.15.20.0 255.255.252.0
+route 66.220.144.0 255.255.240.0
+route 69.171.224.0 255.255.224.0
+route 69.63.176.0 255.255.240.0
+route 74.119.76.0 255.255.252.0
+route 199.16.156.0 255.255.252.0
+route 199.59.148.0 255.255.252.0
+route 203.208.32.0 255.255.224.0
+```&lt;!--:--&gt;&lt;!--:en--&gt;This staff can F*ck GWF, make sure that your DNS server is not been polluted by GWF.&lt;/p&gt;
+
+&lt;p&gt;```bash
+173.194.0.0/16
+198.108.100.192/28
+209.185.108.128/25
+209.85.128.0/17
+216.109.75.80/28
+216.239.32.0/19
+216.33.229.144/29
+216.33.229.160/29
+64.233.160.0/19
+64.41.221.192/28
+64.68.64.64/26
+64.68.80.0/21
+64.68.88.0/21
+66.102.0.0/20
+66.249.64.0/19
+70.32.128.0/19
+72.14.192.0/18
+74.125.0.0/16
+173.252.64.0/18
+204.15.20.0/22
+66.220.144.0/20
+69.171.224.0/19
+69.63.176.0/20
+74.119.76.0/22
+199.16.156.0/22
+199.59.148.0/22
+203.208.32.0/19&lt;/p&gt;
+
+&lt;p&gt;route 173.194.0.0 255.255.0.0
+route 198.108.100.192 255.255.255.240
+route 209.185.108.128 255.255.255.128
+route 209.85.128.0 255.255.128.0
+route 216.109.75.80 255.255.255.240
+route 216.239.32.0 255.255.224.0
+route 216.33.229.144 255.255.255.248
+route 216.33.229.160 255.255.255.248
+route 64.233.160.0 255.255.224.0
+route 64.41.221.192 255.255.255.240
+route 64.68.64.64 255.255.255.192
+route 64.68.80.0 255.255.248.0
+route 64.68.88.0 255.255.248.0
+route 66.102.0.0 255.255.240.0
+route 66.249.64.0 255.255.224.0
+route 70.32.128.0 255.255.224.0
+route 72.14.192.0 255.255.192.0
+route 74.125.0.0 255.255.0.0
+route 173.252.64.0 255.255.192.0
+route 204.15.20.0 255.255.252.0
+route 66.220.144.0 255.255.240.0
+route 69.171.224.0 255.255.224.0
+route 69.63.176.0 255.255.240.0
+route 74.119.76.0 255.255.252.0
+route 199.16.156.0 255.255.252.0
+route 199.59.148.0 255.255.252.0
+route 203.208.32.0 255.255.224.0
+```&lt;!--:--&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 26 Feb 2012 00:00:00 -0500</pubDate>
+        <link>asxzy.net/2012/02/26/ip-for-google-and-facebook-and-twitter.html</link>
+        <guid isPermaLink="true">asxzy.net/2012/02/26/ip-for-google-and-facebook-and-twitter.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>[转载][直观学习排序算法] 视觉直观感受若干常用排序算法</title>
+        <description>&lt;!--:zh--&gt;
+&lt;div&gt;
+&lt;h1&gt;&lt;strong&gt;1 快速排序&lt;/strong&gt;&lt;/h1&gt;
+&lt;strong&gt;介绍：&lt;/strong&gt;
+
+快速排序是由&lt;a title=&quot;东尼·霍尔&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE&quot;&gt;东尼·霍尔&lt;/a&gt;所发展的一种&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。在平均状况下，排序 &lt;em&gt;n&lt;/em&gt; 个项目要&lt;a title=&quot;大O符号&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%A4%A7O%E7%AC%A6%E5%8F%B7&quot;&gt;&lt;strong&gt;Ο&lt;/strong&gt;&lt;/a&gt;(&lt;em&gt;n&lt;/em&gt; log &lt;em&gt;n&lt;/em&gt;)次比较。在最坏状况下则需要&lt;strong&gt;Ο&lt;/strong&gt;(&lt;em&gt;n&lt;/em&gt;&lt;sup&gt;&lt;span style=&quot;font-size: x-small;&quot;&gt;2&lt;/span&gt;&lt;/sup&gt;)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他&lt;strong&gt;Ο&lt;/strong&gt;(&lt;em&gt;n&lt;/em&gt; log &lt;em&gt;n&lt;/em&gt;) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来，且在大部分真实世界的数据，可以决定设计的选择，减少所需时间的二次方项之可能性。
+
+&lt;strong&gt;步骤：&lt;/strong&gt;
+&lt;ul&gt;
+	&lt;li&gt;从数列中挑出一个元素，称为 &quot;基准&quot;（pivot），&lt;/li&gt;
+	&lt;li&gt;重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为&lt;strong&gt;分区（partition）&lt;/strong&gt;操作。&lt;/li&gt;
+	&lt;li&gt;&lt;a title=&quot;递归&quot; href=&quot;http://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92&quot;&gt;递归&lt;/a&gt;地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;strong&gt;排序效果：&lt;/strong&gt;
+
+![](http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+
+&lt;strong&gt;详细过程：&lt;/strong&gt;
+
+&amp;nbsp;
+
+&amp;nbsp;
+# 2 归并排序
+&lt;strong&gt;介绍：&lt;/strong&gt;
+
+归并排序（Merge sort，台湾译作：合并排序）是建立在归并操作上的一种有效的&lt;a title=&quot;排序&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F&quot;&gt;排序&lt;/a&gt;&lt;a title=&quot;算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95&quot;&gt;算法&lt;/a&gt;。该算法是采用&lt;a title=&quot;分治法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95&quot;&gt;分治法&lt;/a&gt;（Divide and Conquer）的一个非常典型的应用
+
+&lt;strong&gt;步骤：&lt;/strong&gt;
+&lt;ul&gt;
+	&lt;li&gt;申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列&lt;/li&gt;
+	&lt;li&gt;设定两个指针，最初位置分别为两个已经排序序列的起始位置&lt;/li&gt;
+	&lt;li&gt;比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置&lt;/li&gt;
+	&lt;li&gt;重复步骤3直到某一指针达到序列尾&lt;/li&gt;
+	&lt;li&gt;将另一序列剩下的所有元素直接复制到合并序列尾&lt;/li&gt;
+&lt;/ul&gt;
+&lt;strong&gt;排序效果：&lt;/strong&gt;
+
+![](http://upload.wikimedia.org/wikipedia/commons/c/c5/Merge_sort_animation2.gif)
+
+&lt;strong&gt;详细过程：&lt;/strong&gt;
+
+&amp;nbsp;
+
+&amp;nbsp;
+# 3 堆排序
+&lt;strong&gt;介绍：&lt;/strong&gt;
+
+堆积排序（Heapsort）是指利用&lt;a title=&quot;堆 (数据结构)&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%A0%86_%28%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%29&quot;&gt;堆&lt;/a&gt;这种数据结构所设计的一种排序算法。堆是一个近似&lt;a title=&quot;完全二叉树&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91&quot;&gt;完全二叉树&lt;/a&gt;的结构，并同时满足&lt;em&gt;堆性质&lt;/em&gt;：即子结点的键值或索引总是小于（或者大于）它的父节点。
+
+&lt;strong&gt;步骤：&lt;/strong&gt;
+
+（比较复杂，自己上网查吧）
+
+&lt;strong&gt;排序效果：&lt;/strong&gt;
+
+![](http://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif)
+
+&lt;strong&gt;详细过程：&lt;/strong&gt;
+
+（暂无）
+# 4 选择排序
+&lt;strong&gt;介绍：&lt;/strong&gt;
+
+选择排序(Selection sort)是一种简单直观的&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。它的工作原理如下。首先在未排序序列中找到最小元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小元素，然后放到排序序列末尾。以此类推，直到所有元素均排序完毕。
+
+&lt;strong&gt;排序效果：&lt;/strong&gt;
+
+![](http://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif)
+
+&lt;strong&gt;详细过程：&lt;/strong&gt;
+
+&amp;nbsp;
+
+&amp;nbsp;
+# 5 冒泡排序
+&lt;strong&gt;介绍：&lt;/strong&gt;
+
+冒泡排序（Bubble Sort，台湾译为：泡沫排序或气泡排序）是一种简单的&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。
+
+&lt;strong&gt;步骤：&lt;/strong&gt;
+&lt;ol&gt;
+	&lt;li&gt;比较相邻的元素。如果第一个比第二个大，就交换他们两个。&lt;/li&gt;
+	&lt;li&gt;对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。&lt;/li&gt;
+	&lt;li&gt;针对所有的元素重复以上的步骤，除了最后一个。&lt;/li&gt;
+	&lt;li&gt;持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;strong&gt;排序效果：&lt;/strong&gt;
+
+![](http://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif)
+
+&lt;strong&gt;详细过程：&lt;/strong&gt;
+
+&amp;nbsp;
+
+&amp;nbsp;
+# 6 插入排序
+&lt;strong&gt;介绍：&lt;/strong&gt;
+
+插入排序（Insertion Sort）的算法描述是一种简单直观的&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
+
+&lt;strong&gt;步骤：&lt;/strong&gt;
+&lt;ul&gt;
+	&lt;li&gt;从第一个元素开始，该元素可以认为已经被排序&lt;/li&gt;
+	&lt;li&gt;取出下一个元素，在已经排序的元素序列中从后向前扫描&lt;/li&gt;
+	&lt;li&gt;如果该元素（已排序）大于新元素，将该元素移到下一位置&lt;/li&gt;
+	&lt;li&gt;重复步骤3，直到找到已排序的元素小于或者等于新元素的位置&lt;/li&gt;
+	&lt;li&gt;将新元素插入到该位置中&lt;/li&gt;
+	&lt;li&gt;重复步骤2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;strong&gt;排序效果：&lt;/strong&gt;
+
+（暂无）
+
+&lt;strong&gt;详细过程：&lt;/strong&gt;
+
+&amp;nbsp;
+
+&amp;nbsp;
+# 7 希尔排序
+&lt;strong&gt;介绍：&lt;/strong&gt;
+
+希尔排序，也称递减增量排序算法，是&lt;a title=&quot;插入排序&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F&quot;&gt;插入排序&lt;/a&gt;的一种高速而稳定的改进版本。
+
+希尔排序是基于插入排序的以下两点性质而提出改进方法的：
+&lt;ul&gt;
+	&lt;li&gt;插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到&lt;a title=&quot;线性排序&quot; href=&quot;http://zh.wikipedia.org/w/index.php?title=%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F&amp;amp;action=edit&amp;amp;redlink=1&quot;&gt;线性排序&lt;/a&gt;的效率&lt;/li&gt;
+	&lt;li&gt;但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位&lt;/li&gt;
+&lt;/ul&gt;
+&lt;strong&gt;排序效果：&lt;/strong&gt;
+
+![](http://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif)
+
+&lt;/div&gt;
+&lt;!--:--&gt;
+&lt;!--:en--&gt;
+&lt;h1&gt;&lt;strong&gt;1 快速排序&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;快速排序是由&lt;a title=&quot;东尼·霍尔&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE&quot;&gt;东尼·霍尔&lt;/a&gt;所发展的一种&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。在平均状况下，排序 &lt;em&gt;n&lt;/em&gt; 个项目要&lt;a title=&quot;大O符号&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%A4%A7O%E7%AC%A6%E5%8F%B7&quot;&gt;&lt;strong&gt;Ο&lt;/strong&gt;&lt;/a&gt;(&lt;em&gt;n&lt;/em&gt; log &lt;em&gt;n&lt;/em&gt;)次比较。在最坏状况下则需要&lt;strong&gt;Ο&lt;/strong&gt;(&lt;em&gt;n&lt;/em&gt;&lt;sup&gt;2&lt;/sup&gt;)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他&lt;strong&gt;Ο&lt;/strong&gt;(&lt;em&gt;n&lt;/em&gt; log &lt;em&gt;n&lt;/em&gt;) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来，且在大部分真实世界的数据，可以决定设计的选择，减少所需时间的二次方项之可能性。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;步骤：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;从数列中挑出一个元素，称为 &quot;基准&quot;（pivot），&lt;/li&gt;
+	&lt;li&gt;重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为&lt;strong&gt;分区（partition）&lt;/strong&gt;操作。&lt;/li&gt;
+	&lt;li&gt;&lt;a title=&quot;递归&quot; href=&quot;http://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92&quot;&gt;递归&lt;/a&gt;地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;排序效果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;详细过程：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; 
+# 2 归并排序
+&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;归并排序（Merge sort，台湾译作：合并排序）是建立在归并操作上的一种有效的&lt;a title=&quot;排序&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F&quot;&gt;排序&lt;/a&gt;&lt;a title=&quot;算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95&quot;&gt;算法&lt;/a&gt;。该算法是采用&lt;a title=&quot;分治法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95&quot;&gt;分治法&lt;/a&gt;（Divide and Conquer）的一个非常典型的应用&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;步骤：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列&lt;/li&gt;
+	&lt;li&gt;设定两个指针，最初位置分别为两个已经排序序列的起始位置&lt;/li&gt;
+	&lt;li&gt;比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置&lt;/li&gt;
+	&lt;li&gt;重复步骤3直到某一指针达到序列尾&lt;/li&gt;
+	&lt;li&gt;将另一序列剩下的所有元素直接复制到合并序列尾&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;排序效果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/c/c5/Merge_sort_animation2.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;详细过程：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; 
+# 3 堆排序
+&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;堆积排序（Heapsort）是指利用&lt;a title=&quot;堆 (数据结构)&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%A0%86_%28%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%29&quot;&gt;堆&lt;/a&gt;这种数据结构所设计的一种排序算法。堆是一个近似&lt;a title=&quot;完全二叉树&quot; href=&quot;http://zh.wikipedia.org/wiki/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91&quot;&gt;完全二叉树&lt;/a&gt;的结构，并同时满足&lt;em&gt;堆性质&lt;/em&gt;：即子结点的键值或索引总是小于（或者大于）它的父节点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;步骤：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（比较复杂，自己上网查吧）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;排序效果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;详细过程：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（暂无）
+# 4 选择排序
+&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;选择排序(Selection sort)是一种简单直观的&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。它的工作原理如下。首先在未排序序列中找到最小元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小元素，然后放到排序序列末尾。以此类推，直到所有元素均排序完毕。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;排序效果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;详细过程：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; 
+# 5 冒泡排序
+&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;冒泡排序（Bubble Sort，台湾译为：泡沫排序或气泡排序）是一种简单的&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;步骤：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;比较相邻的元素。如果第一个比第二个大，就交换他们两个。&lt;/li&gt;
+	&lt;li&gt;对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。&lt;/li&gt;
+	&lt;li&gt;针对所有的元素重复以上的步骤，除了最后一个。&lt;/li&gt;
+	&lt;li&gt;持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;排序效果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;详细过程：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; 
+# 6 插入排序
+&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;插入排序（Insertion Sort）的算法描述是一种简单直观的&lt;a title=&quot;排序算法&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&quot;&gt;排序算法&lt;/a&gt;。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;步骤：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;从第一个元素开始，该元素可以认为已经被排序&lt;/li&gt;
+	&lt;li&gt;取出下一个元素，在已经排序的元素序列中从后向前扫描&lt;/li&gt;
+	&lt;li&gt;如果该元素（已排序）大于新元素，将该元素移到下一位置&lt;/li&gt;
+	&lt;li&gt;重复步骤3，直到找到已排序的元素小于或者等于新元素的位置&lt;/li&gt;
+	&lt;li&gt;将新元素插入到该位置中&lt;/li&gt;
+	&lt;li&gt;重复步骤2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;排序效果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;（暂无）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;详细过程：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; 
+# 7 希尔排序
+&lt;strong&gt;介绍：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;希尔排序，也称递减增量排序算法，是&lt;a title=&quot;插入排序&quot; href=&quot;http://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F&quot;&gt;插入排序&lt;/a&gt;的一种高速而稳定的改进版本。&lt;/p&gt;
+
+&lt;p&gt;希尔排序是基于插入排序的以下两点性质而提出改进方法的：&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到&lt;a title=&quot;线性排序&quot; href=&quot;http://zh.wikipedia.org/w/index.php?title=%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F&amp;amp;action=edit&amp;amp;redlink=1&quot;&gt;线性排序&lt;/a&gt;的效率&lt;/li&gt;
+	&lt;li&gt;但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;排序效果：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Jan 2012 00:00:00 -0500</pubDate>
+        <link>asxzy.net/2012/01/09/sort-algorithm-virtualization.html</link>
+        <guid isPermaLink="true">asxzy.net/2012/01/09/sort-algorithm-virtualization.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>完美解决Linux（Ubuntu）下chromium（chrome）中文显示问题</title>
+        <description>&lt;p&gt;通过一天的摸索，终于知道了字体在Linux下的运行机制。通过一定的技巧，可以打造和几乎和windows下一模一样的显示效果。如图（点击打开大图）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2012/01/windows.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2012/01/ubuntu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;图一为windows下的显示效果，默认字体为宋体。
+图二为ubuntu下的显示效果，默认字体为微软雅黑。&lt;/p&gt;
+
+&lt;p&gt;还看的过去吧。&lt;/p&gt;
+
+&lt;p&gt;Linux下Chromium（chrome）的显示一直是个饱受诟病的问题，大家各种方法工具一起上，现在网上提供的主要方法为：
+1.删楷体+改系统字体
+2.设置里改字体。
+3.启动器的命令里加上”-disable-tabbed-options”，在任意输入框右键拼写检查选项-。。。。。。。。。。。（真的很佩服能找到这种方法的人）。&lt;/p&gt;
+
+&lt;p&gt;以上方法均能使chromium（chrome）显示用户指定的字体，但问题来了。用户只能指定一个字体作为网页显示的字体，这样有悖设计师初衷，比如有的设计师需要使用大于17px的中文作标题，宋体显然不能满足需求，设计师将其指定为楷体或其他矢量字体，以便提高显示效果。在这种情况下，以上方法均会使网页变形。&lt;/p&gt;
+
+&lt;p&gt;反观firefox，firefox可以使用系统默认字体作为渲染网页的字体，这是为什么呢，我们来看看firefox的配置吧。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2012/01/Screenshot-2012-01-04-184249.png&quot; alt=&quot;&quot; title=&quot;firefox下字体设置&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在语言编码栏选中简体中文后，firefox的默认配置：
+比例字体默认为无衬线字体，继承第三个选项
+衬线字体为serif
+无衬线字体为sans-serif
+等宽字体为monospace&lt;/p&gt;
+
+&lt;p&gt;这里普及一个知识，以上三种字体中的选项并非是一种特定的字体，而是通用字体。何为通用字体，这个解释起来就很麻烦了，要回归W3C标准才能知道，简短的介绍在这里：&lt;a href=&quot;http://www.w3school.com.cn/css/css_font-family.asp&quot;&gt;http://www.w3school.com.cn/css/css_font-family.asp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;再简单点说，以上三种字体，均代表系统默认字体。即&lt;/p&gt;
+
+&lt;p&gt;衬线字体选择serif，使用系统默认的衬线字体。
+无衬线字体选择sans-serif，使用系统默认的无衬线字体。
+等宽字体选择monospace， 使用系统默认的等宽字体。&lt;/p&gt;
+
+&lt;p&gt;又有童鞋问了，衬线、无衬线和等宽，这三个有什么区别，这个要到印刷学去查明原因了。&lt;/p&gt;
+
+&lt;p&gt;serif，衬线字：字体末端带着小小勾，主要应用于印刷物，如报纸。其特点是字号小（印刷省钱），远处看还是为一条直线，因为带勾，阅读时不会因为字体过小而串行。
+sans-serif，无衬线字：字体末端不带勾，比衬衫字大，适合屏幕显示。
+monospace，等宽字体：字体宽度相等，主要用于显示代码和对齐排版。&lt;/p&gt;
+
+&lt;p&gt;言归正传，回到firefox的配置文件上来。&lt;/p&gt;
+
+&lt;p&gt;通过察看配置，一切真相大白。原来firefox并没有设置字体，而是老老实实的继承了系统字体设置。&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;chromium（chrome）就不一样了，Linux下的chromium（chrome）默认字体并不继承系统字体。&lt;/p&gt;
+
+&lt;p&gt;又有童鞋说了，和firefox一样，在配置文件中改成继承系统字体呗，于是乎大家开始找，好不容易在字体的下拉菜单中找到了一个Sans，找到了个Monospace，选之。。。&lt;/p&gt;
+
+&lt;p&gt;悲剧就是从这里开始的，你应该记得，Linux是区分大小写的吧，事实上，Sans和Monospace是两中特定的字体，并非通用字体选项。&lt;/p&gt;
+
+&lt;p&gt;有的读者这时候会叫，搞毛线啊，转了一圈还是不能设置？
+等我说完嘛。&lt;/p&gt;
+
+&lt;p&gt;配置项里虽然无法选择通用字体，但是，他的配置总会保存在某一处吧。找到他，暴力改之。这个文件位于~/.config/chromium/Default/Preferences（这个是chromium的目录，chrome理论上把chromium改为chrome即可，没条件验证，有的朋友帮忙看下是不是这个文件）&lt;/p&gt;
+
+&lt;p&gt;首先，关闭所有正在运行的chromium（chrome）。之后用你最喜欢的编辑器打开配置文件，编辑之。我这里用vim&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+vim ~/.config/chromium/Default/Preferences
+&lt;/code&gt;
+按shift+g转到文件末尾处
+你会看到这些东西
+&lt;code&gt;
+&quot;webkit&quot;: {
+&quot;webprefs&quot;: {
+&quot;global&quot;: {
+&quot;fixed_font_family&quot;: &quot;monospace&quot;,
+&quot;sansserif_font_family&quot;: &quot;scans&quot;,
+&quot;serif_font_family&quot;: &quot;scans-serif&quot;,
+&quot;standard_font_family&quot;: &quot;scans&quot;
+},
+&quot;uses_universal_detector&quot;: true
+}
+}
+&lt;/code&gt;
+font_family，常写css的童鞋是不是感觉很亲切呢。这里就是字体设置了，把他改的和我上边内容一样就行了。如图
+&lt;img src=&quot;/uploads/2012/01/Screenshot-2012-01-04-190845.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;好了，现在启动chromium（chrome），随便打开一个网页，难看的楷体消失了。&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;好了，搞定了，就这么简单。说了这么多，完全是为了抛砖引玉，单纯的贴代码没啥意思，代码是思想的体现。有思想的程序猿才能进化嘛。就这样啦。。&lt;!--:--&gt;&lt;!--:en--&gt;通过一天的摸索，终于知道了字体在Linux下的运行机制。通过一定的技巧，可以打造和几乎和windows下一模一样的显示效果。如图（点击打开大图）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2012/01/windows.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2012/01/ubuntu.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;图一为windows下的显示效果，默认字体为宋体。
+图二为ubuntu下的显示效果，默认字体为微软雅黑。&lt;/p&gt;
+
+&lt;p&gt;还看的过去吧。&lt;/p&gt;
+
+&lt;p&gt;Linux下Chromium（chrome）的显示一直是个饱受诟病的问题，大家各种方法工具一起上，现在网上提供的主要方法为：
+1.删楷体+改系统字体
+2.设置里改字体。
+3.启动器的命令里加上”-disable-tabbed-options”，在任意输入框右键拼写检查选项-。。。。。。。。。。。（真的很佩服能找到这种方法的人）。&lt;/p&gt;
+
+&lt;p&gt;以上方法均能使chromium（chrome）显示用户指定的字体，但问题来了。用户只能指定一个字体作为网页显示的字体，这样有悖设计师初衷，比如有的设计师需要使用大于17px的中文作标题，宋体显然不能满足需求，设计师将其指定为楷体或其他矢量字体，以便提高显示效果。在这种情况下，以上方法均会使网页变形。&lt;/p&gt;
+
+&lt;p&gt;反观firefox，firefox可以使用系统默认字体作为渲染网页的字体，这是为什么呢，我们来看看firefox的配置吧。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2012/01/Screenshot-2012-01-04-184249.png&quot; alt=&quot;&quot; title=&quot;firefox下字体设置&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在语言编码栏选中简体中文后，firefox的默认配置：
+比例字体默认为无衬线字体，继承第三个选项
+衬线字体为serif
+无衬线字体为sans-serif
+等宽字体为monospace&lt;/p&gt;
+
+&lt;p&gt;这里普及一个知识，以上三种字体中的选项并非是一种特定的字体，而是通用字体。何为通用字体，这个解释起来就很麻烦了，要回归W3C标准才能知道，简短的介绍在这里：&lt;a href=&quot;http://www.w3school.com.cn/css/css_font-family.asp&quot;&gt;http://www.w3school.com.cn/css/css_font-family.asp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;再简单点说，以上三种字体，均代表系统默认字体。即&lt;/p&gt;
+
+&lt;p&gt;衬线字体选择serif，使用系统默认的衬线字体。
+无衬线字体选择sans-serif，使用系统默认的无衬线字体。
+等宽字体选择monospace， 使用系统默认的等宽字体。&lt;/p&gt;
+
+&lt;p&gt;又有童鞋问了，衬线、无衬线和等宽，这三个有什么区别，这个要到印刷学去查明原因了。&lt;/p&gt;
+
+&lt;p&gt;serif，衬线字：字体末端带着小小勾，主要应用于印刷物，如报纸。其特点是字号小（印刷省钱），远处看还是为一条直线，因为带勾，阅读时不会因为字体过小而串行。
+sans-serif，无衬线字：字体末端不带勾，比衬衫字大，适合屏幕显示。
+monospace，等宽字体：字体宽度相等，主要用于显示代码和对齐排版。&lt;/p&gt;
+
+&lt;p&gt;言归正传，回到firefox的配置文件上来。&lt;/p&gt;
+
+&lt;p&gt;通过察看配置，一切真相大白。原来firefox并没有设置字体，而是老老实实的继承了系统字体设置。&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;chromium（chrome）就不一样了，Linux下的chromium（chrome）默认字体并不继承系统字体。&lt;/p&gt;
+
+&lt;p&gt;又有童鞋说了，和firefox一样，在配置文件中改成继承系统字体呗，于是乎大家开始找，好不容易在字体的下拉菜单中找到了一个Sans，找到了个Monospace，选之。。。&lt;/p&gt;
+
+&lt;p&gt;悲剧就是从这里开始的，你应该记得，Linux是区分大小写的吧，事实上，Sans和Monospace是两中特定的字体，并非通用字体选项。&lt;/p&gt;
+
+&lt;p&gt;有的读者这时候会叫，搞毛线啊，转了一圈还是不能设置？
+等我说完嘛。&lt;/p&gt;
+
+&lt;p&gt;配置项里虽然无法选择通用字体，但是，他的配置总会保存在某一处吧。找到他，暴力改之。这个文件位于~/.config/chromium/Default/Preferences（这个是chromium的目录，chrome理论上把chromium改为chrome即可，没条件验证，有的朋友帮忙看下是不是这个文件）&lt;/p&gt;
+
+&lt;p&gt;首先，关闭所有正在运行的chromium（chrome）。之后用你最喜欢的编辑器打开配置文件，编辑之。我这里用vim&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+vim ~/.config/chromium/Default/Preferences
+&lt;/code&gt;
+按shift+g转到文件末尾处
+你会看到这些东西
+&lt;code&gt;
+&quot;webkit&quot;: {
+&quot;webprefs&quot;: {
+&quot;global&quot;: {
+&quot;fixed_font_family&quot;: &quot;monospace&quot;,
+&quot;sansserif_font_family&quot;: &quot;scans&quot;,
+&quot;serif_font_family&quot;: &quot;scans-serif&quot;,
+&quot;standard_font_family&quot;: &quot;scans&quot;
+},
+&quot;uses_universal_detector&quot;: true
+}
+}
+&lt;/code&gt;
+font_family，常写css的童鞋是不是感觉很亲切呢。这里就是字体设置了，把他改的和我上边内容一样就行了。如图
+&lt;img src=&quot;/uploads/2012/01/Screenshot-2012-01-04-190845.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;好了，现在启动chromium（chrome），随便打开一个网页，难看的楷体消失了。&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;好了，搞定了，就这么简单。说了这么多，完全是为了抛砖引玉，单纯的贴代码没啥意思，代码是思想的体现。有思想的程序猿才能进化嘛。就这样啦。。&lt;/p&gt;
+</description>
+        <pubDate>Wed, 04 Jan 2012 00:00:00 -0500</pubDate>
+        <link>asxzy.net/2012/01/04/chinese-character-display-in-chromium-and-linux.html</link>
+        <guid isPermaLink="true">asxzy.net/2012/01/04/chinese-character-display-in-chromium-and-linux.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用Sphinx作为Mysql下的一种存储引擎</title>
+        <description>&lt;p&gt;睿思数据库常年高负载运行，MySQL占用率几乎一直处于100%，站点可用率低下，通过查看processlist得出结论，like查找过于频繁。&lt;/p&gt;
+
+&lt;p&gt;like一定程度上充当了全文搜索的角色，随着数据库的增长，like操作消耗的cpu资源也会直线上升，根本原因在于MySQL无法高效的处理全文搜索引擎。&lt;/p&gt;
+
+&lt;p&gt;使用全文搜索引擎可以很好的解决这一问题，sphinx就是一款很好的开源检索引擎。&lt;/p&gt;
+
+&lt;p&gt;phinx 是一个基于 GPL 2 协议颁发的免费开源的全文搜索引擎.它是专门为更好的整合脚本语言和SQL数据库而设计的.当前内置的数据源支持直接从连接到的 MySQL 或 PostgreSQL 获取数据, 或者你可以使用 XML 通道结构(XML pipe mechanism , 一种基于 Sphinx 可识别的特殊xml格式的索引通道)
+Sphinx 全文索引的主要特性:
+1. 高速建立索引 (在使用主流CPU的情况下 , 可达10M/秒)
+2. 高速查询 (在 2-4 GB 的文本里查询平均耗时在 0.1 秒以内)
+3. 高扩展性 (单CPU支持高达100G的数据文本,1亿条记录)
+4. 支持分布式检索 (0.9.6版起)
+5. 原生支持Mysql (MyISAM 和 InnoDB 表都被支持)
+6. 支持表达式查询
+7. 支持相近词组排名，提供良好的相关查询
+8. 支持英文,俄文词干提取和音标查询
+9. 支持任意数量的文档字段 (可以查询时修改权重)
+10.支持文档组
+11.支持分词
+12.支持不同的查询模式
+13.通用的XML接口，大大简化了集成定制
+14.纯PHP客户端API(无需编译扩展)&lt;/p&gt;
+
+&lt;p&gt;为了更好的适用于中文，国人基于sphinx开发出了中文检索引擎Coreseek&lt;a href=&quot;http://www.coreseek.com&quot;&gt;http://www.coreseek.com&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;通过一定的设置和应用源码的改动，sphinx可以很好的代替mysql中的like查找，实现全文搜索。&lt;/p&gt;
+
+&lt;p&gt;国内这方面的文档和资料较少，部署有一定难度，在接下来几天，我会针对睿思的实际环境，将sphinx的部署过程记录下来。&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 Jan 2012 00:00:00 -0500</pubDate>
+        <link>asxzy.net/2012/01/02/use-sphinx-as-a-mysql-like-query-search-engine.html</link>
+        <guid isPermaLink="true">asxzy.net/2012/01/02/use-sphinx-as-a-mysql-like-query-search-engine.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>如何为ATI/APU用户编译编译安装XBMC，硬解播放视频</title>
+        <description>&lt;p&gt;本文译自：&lt;a href=&quot;http://forum.xbmc.org/showthread.php?t=116996&quot;&gt;http://forum.xbmc.org/showthread.php?t=116996&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;译者：asxzy &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#064;&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#064;&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;font-size: large;&quot;&gt;什么是Xvba&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Xvba（X-Video Bitstream Acceleration）是使用A卡和FusionAPU进行硬件视频加速的类库.
+如果你有兴趣的话，&lt;a href=&quot;http://www.phoronix.com/scan.php?page=news_item&amp;amp;px=MTAyODU&quot; target=&quot;_blank&quot;&gt;这里&lt;/a&gt;?有一些Xvba的信息&lt;/p&gt;
+
+&lt;p&gt;这个项目是由&lt;strong&gt;FernetMenta&lt;/strong&gt;和&lt;strong&gt;fritsch?&lt;/strong&gt;组织并发起的&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;font-size: medium;&quot;&gt;现状&lt;/span&gt;
+&lt;strong&gt;你可以获得:&lt;/strong&gt;
+- 改进后的稳定的VAAPI(xvba-va-driver)，非常强大的类库，为Intel和ATI用户提供硬解码的基础.
+- 高清支持，可以顺畅的解码H264, VC-1&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;不能工作的部分:&lt;/strong&gt;
+- H264 with Level &amp;gt;= 5.1 (A卡驱动fglrx限制)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;已知问题:&lt;/strong&gt;
+- A卡驱动fglrx在挂起和恢复时出错（并非xbmc-xvba错误）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;我们未来将要做些什么:&lt;/strong&gt;
+- 推进 MPEG-2 (如果我们能联系上AMD)
+- 使用H264 5.1 (如果AMD肯告诉我们方法)
+译者注：凡是出问题，都出在AMD身上。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;你需要:&lt;/strong&gt;
+- deb方式安装的A卡闭源驱动fglrx(amd catalyst) &amp;gt;= 11.11 (&amp;gt;=fglrx 2:8.911)&lt;/p&gt;
+
+&lt;p&gt;GIT 源:
+&lt;a href=&quot;https://github.com/FernetMenta/xbmc/commits/xvba&quot; target=&quot;_blank&quot;&gt;https://github.com/FernetMenta/xbmc/commits/xvba&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PA的Ubuntu源:
+&lt;a href=&quot;https://launchpad.net/~wsnipex/+archive/xbmc-xvba&quot; target=&quot;_blank&quot;&gt;https://launchpad.net/~wsnipex/+archive/xbmc-xvba&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;?窗口界面可能和XBMC不兼容(如 compiz, gnome-shell)
+如果你有这个问题，请禁用Compiz，如果你还想用unity，你可以选择unity-2d.&lt;/p&gt;
+
+&lt;p&gt;你也应该在XBMC中将等待垂直同步开启：
+XBMC - 系统 - 设置 - 视频输出
+XBMC - system - settings - system - video output - Vsync - always&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;font-size: large;&quot;&gt;怎样从头安装XBMC PVR Xvba&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第一步:&lt;/strong&gt;
+我们使用最小化安装后的64位 Ubuntu 11.10 Oneric做演示.
+译者注：译者使用普通安装的64位Ubuntu 11.10 Oneric同样成功了，其他版本理论上均可成功安装。&lt;/p&gt;
+
+&lt;p&gt;选择命令行安装，并且使用xbmc作为用户名
+译者注：这里使用xbmc做用户名是为了后边自动登录到xbmc做准备，选用其他名称无任何影响&lt;/p&gt;
+
+&lt;p&gt;重启之后，安装ssh，这样你就可以从其他终端登录到linux上了。同时，为了安装ppa源，我们也需要安装一些python包。最后，将xbmc添加到video和audio用户组。如果不进行这一步，没有启动x终端的用户将无法访问gpu资源，从而无法安装。本机操作直接按Ctrl+alt+F1进入命令行。&lt;/p&gt;
+
+&lt;p&gt;命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+sudo apt-get update
+sudo apt-get install ssh python-software-properties udisks upower xorg alsa-utils mesa-utils git-core librtmp0 lirc libmad0 lightdm
+sudo adduser xbmc video
+sudo adduser xbmc audio
+#译者注：如果你没有使用xbmc作为用户名，这里请将xbmc替换为你的用户名
+sudo reboot # 不确定是否需要重启，保险起见，重启一下吧
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第二步:&lt;/strong&gt;
+我们需要安装最新的AMD/ATI闭源驱动 (截至译者翻译，最新版为 11.12).&lt;/p&gt;
+
+&lt;p&gt;现在安装一些依赖库&lt;/p&gt;
+
+&lt;p&gt;命令:
+&lt;code&gt;bash
+sudo apt-get install -y build-essential cdbs fakeroot dh-make debhelper debconf libstdc++6 dkms libqtgui4 wget execstack libelfg0 dh-modaliases
+sudo apt-get install -y ia32-libs
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;下载并安装最新的AMD闭源驱动(fglrx)&lt;/p&gt;
+
+&lt;p&gt;命令:
+```bash
+cd ~; mkdir catalyst11.12; cd catalyst11.12
+wget http://www2.ati.com/drivers/linux/ati-driver-installer-11-12-x86.x86_64.run
+sudo sh ati-driver-installer-11-12-x86.x86_64.run –buildandinstallpkg
+#译者注，这里有人可能会失败。原因是安装驱动的时候可能需要其他依赖。这里译者推荐先编译后手动安装。
+#命令如下：
+sudo sh ati-driver-installer-11-12-x86.x86_64.run –buildpkg
+sudo dpkg -i *.deb
+sudo apt-get install -f
+#如果你已经成功运行之前的
+#sudo sh ati-driver-installer-11-12-x86.x86_64.run –buildandinstallpkg
+#命令，并且没有报错，以上三行命令无需重复进行。
+#接着更新显卡设置
+sudo aticonfig –initial -f
+sudo aticonfig –sync-vsync=on&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;可选设置: 禁用underscan(黑边)&lt;/p&gt;
+
+&lt;p&gt;命令:
+&lt;code&gt;bash
+sudo aticonfig --set-pcs-val=MCIL,DigitalHDTVDefaultUnderscan,0
+&lt;/code&gt;
+译者注：这个可选设置在译者两个笔记本上均无反应&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第三步:&lt;/strong&gt;
+安装 PVR+XVBA build&lt;/p&gt;
+
+&lt;p&gt;命令:
+```bash
+sudo add-apt-repository ppa:wsnipex/xbmc-xvba
+#不要脸的译者又来了=.=||：国人喜欢复制粘贴代码，这一步会提示你按回车确认导入证书，喜欢粘贴的伸手党请把后面的命令单独复制粘贴吧。
+sudo apt-get update
+sudo apt-get install xbmc xbmc-bin&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;font-size: large;&quot;&gt;译者的话&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;由于本人实际环境与需求和原文有些许出入（本人正常安装带有图形界面的Ubuntu且不需要xbmc自启动），故后续xbmc自动登录部分未作翻译，读者如需自动登录，请访问原文参考操作。
+&lt;a href=&quot;http://forum.xbmc.org/showthread.php?t=116996&quot;&gt;http://forum.xbmc.org/showthread.php?t=116996&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本文内容真实可用，译者亲测：
+ASUS M51VA：ATI mobility HD3650
+Acer 522：AMD C-50 APU&lt;/p&gt;
+
+&lt;p&gt;大老半夜辛辛苦苦翻译，如需转载请注明原文地址及本文地址。&lt;/p&gt;
+
+&lt;p&gt;asxzy &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#064;&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#064;&amp;#097;&amp;#115;&amp;#120;&amp;#122;&amp;#121;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;
+2012年1月3日&lt;/p&gt;
+</description>
+        <pubDate>Sat, 31 Dec 2011 00:00:00 -0500</pubDate>
+        <link>asxzy.net/2011/12/31/howto-install-xbmc-pvr-xvba-for-amd-or-ati-radeon-and-fusion-gpus.html</link>
+        <guid isPermaLink="true">asxzy.net/2011/12/31/howto-install-xbmc-pvr-xvba-for-amd-or-ati-radeon-and-fusion-gpus.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

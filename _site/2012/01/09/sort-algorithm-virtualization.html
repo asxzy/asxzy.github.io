@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>[转载][直观学习排序算法] 视觉直观感受若干常用排序算法</title>
+  <meta name="description" content="1 快速排序介绍：">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="asxzy.net/2012/01/09/sort-algorithm-virtualization.html">
+  <link rel="alternate" type="application/atom+xml" title="asxzy Blog" href="asxzy.net/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">asxzy Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">[转载][直观学习排序算法] 视觉直观感受若干常用排序算法</h1>
+    <p class="post-meta">Jan 9, 2012</p>
+  </header>
+
+  <article class="post-content">
+    <!--:zh-->
+<div>
+<h1><strong>1 快速排序</strong></h1>
+<strong>介绍：</strong>
+
+快速排序是由<a title="东尼·霍尔" href="http://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE">东尼·霍尔</a>所发展的一种<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。在平均状况下，排序 <em>n</em> 个项目要<a title="大O符号" href="http://zh.wikipedia.org/wiki/%E5%A4%A7O%E7%AC%A6%E5%8F%B7"><strong>Ο</strong></a>(<em>n</em> log <em>n</em>)次比较。在最坏状况下则需要<strong>Ο</strong>(<em>n</em><sup><span style="font-size: x-small;">2</span></sup>)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他<strong>Ο</strong>(<em>n</em> log <em>n</em>) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来，且在大部分真实世界的数据，可以决定设计的选择，减少所需时间的二次方项之可能性。
+
+<strong>步骤：</strong>
+<ul>
+	<li>从数列中挑出一个元素，称为 "基准"（pivot），</li>
+	<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为<strong>分区（partition）</strong>操作。</li>
+	<li><a title="递归" href="http://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92">递归</a>地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
+</ul>
+<strong>排序效果：</strong>
+
+![](http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+
+<strong>详细过程：</strong>
+
+&nbsp;
+
+&nbsp;
+# 2 归并排序
+<strong>介绍：</strong>
+
+归并排序（Merge sort，台湾译作：合并排序）是建立在归并操作上的一种有效的<a title="排序" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F">排序</a><a title="算法" href="http://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95">算法</a>。该算法是采用<a title="分治法" href="http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95">分治法</a>（Divide and Conquer）的一个非常典型的应用
+
+<strong>步骤：</strong>
+<ul>
+	<li>申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列</li>
+	<li>设定两个指针，最初位置分别为两个已经排序序列的起始位置</li>
+	<li>比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置</li>
+	<li>重复步骤3直到某一指针达到序列尾</li>
+	<li>将另一序列剩下的所有元素直接复制到合并序列尾</li>
+</ul>
+<strong>排序效果：</strong>
+
+![](http://upload.wikimedia.org/wikipedia/commons/c/c5/Merge_sort_animation2.gif)
+
+<strong>详细过程：</strong>
+
+&nbsp;
+
+&nbsp;
+# 3 堆排序
+<strong>介绍：</strong>
+
+堆积排序（Heapsort）是指利用<a title="堆 (数据结构)" href="http://zh.wikipedia.org/wiki/%E5%A0%86_%28%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%29">堆</a>这种数据结构所设计的一种排序算法。堆是一个近似<a title="完全二叉树" href="http://zh.wikipedia.org/wiki/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91">完全二叉树</a>的结构，并同时满足<em>堆性质</em>：即子结点的键值或索引总是小于（或者大于）它的父节点。
+
+<strong>步骤：</strong>
+
+（比较复杂，自己上网查吧）
+
+<strong>排序效果：</strong>
+
+![](http://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif)
+
+<strong>详细过程：</strong>
+
+（暂无）
+# 4 选择排序
+<strong>介绍：</strong>
+
+选择排序(Selection sort)是一种简单直观的<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。它的工作原理如下。首先在未排序序列中找到最小元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小元素，然后放到排序序列末尾。以此类推，直到所有元素均排序完毕。
+
+<strong>排序效果：</strong>
+
+![](http://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif)
+
+<strong>详细过程：</strong>
+
+&nbsp;
+
+&nbsp;
+# 5 冒泡排序
+<strong>介绍：</strong>
+
+冒泡排序（Bubble Sort，台湾译为：泡沫排序或气泡排序）是一种简单的<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。
+
+<strong>步骤：</strong>
+<ol>
+	<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+	<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
+	<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+	<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<strong>排序效果：</strong>
+
+![](http://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif)
+
+<strong>详细过程：</strong>
+
+&nbsp;
+
+&nbsp;
+# 6 插入排序
+<strong>介绍：</strong>
+
+插入排序（Insertion Sort）的算法描述是一种简单直观的<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
+
+<strong>步骤：</strong>
+<ul>
+	<li>从第一个元素开始，该元素可以认为已经被排序</li>
+	<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+	<li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
+	<li>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</li>
+	<li>将新元素插入到该位置中</li>
+	<li>重复步骤2</li>
+</ul>
+<strong>排序效果：</strong>
+
+（暂无）
+
+<strong>详细过程：</strong>
+
+&nbsp;
+
+&nbsp;
+# 7 希尔排序
+<strong>介绍：</strong>
+
+希尔排序，也称递减增量排序算法，是<a title="插入排序" href="http://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">插入排序</a>的一种高速而稳定的改进版本。
+
+希尔排序是基于插入排序的以下两点性质而提出改进方法的：
+<ul>
+	<li>插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到<a title="线性排序" href="http://zh.wikipedia.org/w/index.php?title=%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F&amp;action=edit&amp;redlink=1">线性排序</a>的效率</li>
+	<li>但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位</li>
+</ul>
+<strong>排序效果：</strong>
+
+![](http://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif)
+
+</div>
+<!--:-->
+<!--:en-->
+<h1><strong>1 快速排序</strong></h1>
+<p><strong>介绍：</strong></p>
+
+<p>快速排序是由<a title="东尼·霍尔" href="http://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE">东尼·霍尔</a>所发展的一种<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。在平均状况下，排序 <em>n</em> 个项目要<a title="大O符号" href="http://zh.wikipedia.org/wiki/%E5%A4%A7O%E7%AC%A6%E5%8F%B7"><strong>Ο</strong></a>(<em>n</em> log <em>n</em>)次比较。在最坏状况下则需要<strong>Ο</strong>(<em>n</em><sup>2</sup>)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他<strong>Ο</strong>(<em>n</em> log <em>n</em>) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来，且在大部分真实世界的数据，可以决定设计的选择，减少所需时间的二次方项之可能性。</p>
+
+<p><strong>步骤：</strong></p>
+<ul>
+	<li>从数列中挑出一个元素，称为 "基准"（pivot），</li>
+	<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为<strong>分区（partition）</strong>操作。</li>
+	<li><a title="递归" href="http://zh.wikipedia.org/wiki/%E9%80%92%E5%BD%92">递归</a>地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
+</ul>
+<p><strong>排序效果：</strong></p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="" /></p>
+
+<p><strong>详细过程：</strong></p>
+
+<p> </p>
+
+<p> 
+# 2 归并排序
+<strong>介绍：</strong></p>
+
+<p>归并排序（Merge sort，台湾译作：合并排序）是建立在归并操作上的一种有效的<a title="排序" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F">排序</a><a title="算法" href="http://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95">算法</a>。该算法是采用<a title="分治法" href="http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95">分治法</a>（Divide and Conquer）的一个非常典型的应用</p>
+
+<p><strong>步骤：</strong></p>
+<ul>
+	<li>申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列</li>
+	<li>设定两个指针，最初位置分别为两个已经排序序列的起始位置</li>
+	<li>比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置</li>
+	<li>重复步骤3直到某一指针达到序列尾</li>
+	<li>将另一序列剩下的所有元素直接复制到合并序列尾</li>
+</ul>
+<p><strong>排序效果：</strong></p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/c/c5/Merge_sort_animation2.gif" alt="" /></p>
+
+<p><strong>详细过程：</strong></p>
+
+<p> </p>
+
+<p> 
+# 3 堆排序
+<strong>介绍：</strong></p>
+
+<p>堆积排序（Heapsort）是指利用<a title="堆 (数据结构)" href="http://zh.wikipedia.org/wiki/%E5%A0%86_%28%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%29">堆</a>这种数据结构所设计的一种排序算法。堆是一个近似<a title="完全二叉树" href="http://zh.wikipedia.org/wiki/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91">完全二叉树</a>的结构，并同时满足<em>堆性质</em>：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
+
+<p><strong>步骤：</strong></p>
+
+<p>（比较复杂，自己上网查吧）</p>
+
+<p><strong>排序效果：</strong></p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif" alt="" /></p>
+
+<p><strong>详细过程：</strong></p>
+
+<p>（暂无）
+# 4 选择排序
+<strong>介绍：</strong></p>
+
+<p>选择排序(Selection sort)是一种简单直观的<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。它的工作原理如下。首先在未排序序列中找到最小元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小元素，然后放到排序序列末尾。以此类推，直到所有元素均排序完毕。</p>
+
+<p><strong>排序效果：</strong></p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif" alt="" /></p>
+
+<p><strong>详细过程：</strong></p>
+
+<p> </p>
+
+<p> 
+# 5 冒泡排序
+<strong>介绍：</strong></p>
+
+<p>冒泡排序（Bubble Sort，台湾译为：泡沫排序或气泡排序）是一种简单的<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+
+<p><strong>步骤：</strong></p>
+<ol>
+	<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+	<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
+	<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+	<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<p><strong>排序效果：</strong></p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif" alt="" /></p>
+
+<p><strong>详细过程：</strong></p>
+
+<p> </p>
+
+<p> 
+# 6 插入排序
+<strong>介绍：</strong></p>
+
+<p>插入排序（Insertion Sort）的算法描述是一种简单直观的<a title="排序算法" href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</p>
+
+<p><strong>步骤：</strong></p>
+<ul>
+	<li>从第一个元素开始，该元素可以认为已经被排序</li>
+	<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+	<li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
+	<li>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</li>
+	<li>将新元素插入到该位置中</li>
+	<li>重复步骤2</li>
+</ul>
+<p><strong>排序效果：</strong></p>
+
+<p>（暂无）</p>
+
+<p><strong>详细过程：</strong></p>
+
+<p> </p>
+
+<p> 
+# 7 希尔排序
+<strong>介绍：</strong></p>
+
+<p>希尔排序，也称递减增量排序算法，是<a title="插入排序" href="http://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">插入排序</a>的一种高速而稳定的改进版本。</p>
+
+<p>希尔排序是基于插入排序的以下两点性质而提出改进方法的：</p>
+<ul>
+	<li>插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到<a title="线性排序" href="http://zh.wikipedia.org/w/index.php?title=%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F&amp;action=edit&amp;redlink=1">线性排序</a>的效率</li>
+	<li>但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位</li>
+</ul>
+<p><strong>排序效果：</strong></p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif" alt="" /></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">asxzy Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>asxzy Blog</li>
+          <li><a href="mailto:asxzy@asxzy.net">asxzy@asxzy.net</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/asxzy">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">asxzy</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/asxzy">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">asxzy</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

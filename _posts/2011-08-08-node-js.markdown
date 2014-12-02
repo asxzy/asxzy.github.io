@@ -1,0 +1,60 @@
+---
+layout: post
+title: node.js初体验【Google V8引擎、单线程、非阻塞IO、事件驱动】
+date: '2011-8-8'
+comments: true
+---
+node.js，说简单点，基于Google V8引擎的，运行在服务器端的JavaScript。
+
+具有单线程、非阻塞IO、事件驱动等特性。
+
+学习的这几天，感受最深的还是非阻塞IO。由于采用Google V8引擎，node.js可以异步处理数据，举个最简单的例子。
+
+```javascript
+setTimeout(function(){console.log('5')},5000);
+console.log('1');
+function test(){
+	setTimeout(function(){console.log('2')},1000);
+}
+test();
+console.log('3');
+setTimeout(function(){console.log('4')},2000);
+```
+如果是阻塞IO，程序按行顺序执行，每行执行完再去执行下一行。
+
+运行结果为5，1，2，3，4。运行时间约为8000ms。
+
+node.js采用非阻塞IO，程序按顺序执行，但并不等待当前代码执行完毕，即IO不阻塞。
+```bash
+[root@asxzy nodejs]# node test.js
+1
+3
+2
+4
+5
+```
+ 运行结果为1，3，2，4，5。运行时间约为5000ms
+
+这就是非阻塞IO所带来的好处，永远不会产生死锁，因为它本身没有锁机制。
+
+
+
+
+同时，非阻塞IO也对变成带来的一些问题：
+
+过程式编程中，有很多情况下是本句代码要求先前的代码执行完毕，如要调用之前处理的数据结果、和数据库交互等。
+
+node.js中可以采用回调方式解决这个问题。
+
+比如
+
+```javascript
+setTimeout(function(){console.log('5')},5000);
+```
+在执行完5000ms的Timeout之后，调用function(){console.log('5')}
+
+
+
+以上为学习一天node.js之后的小小体会。
+
+2011.08.08@淘宝

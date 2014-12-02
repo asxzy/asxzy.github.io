@@ -1,0 +1,154 @@
+---
+layout: post
+title: 利用Chi**Net、CMCC等热点认证系统隧道上网。科学上网之53UDP
+date: '2011-5-18'
+comments: true
+---
+先来说说怎么利用ChinaNet、CMCC免费上网。
+ChinaNet和CMCC都是基于页面认证的上网，要让客户端使用页面认证上网，就必须开通DNS服务和80端口，其中，DNS是udp53端口，网页是80端口，但是客户端上访问80端口就会被路由器重定向，但使用DNS服务器正常，也就是说，udp53端口有国际权限。通过这一点，我们可以使用udp53端口来建立VPN，从而实现免费上网。
+
+VPS上架设OpenVPN的教程多如牛毛，在此我就不详述了，记个流水帐，以便模仿与被模仿。
+
+第一步：检测环境。
+1.TUN支持。
+OpenVPN需要TUN支持
+用这个命令检测：
+`cat /dev/net/tun`
+
+如果返回信息为：
+`cat: /dev/net/tun: File descriptor in bad state`
+说明VPS支持TUN，否则给vps公司法Ticket，有的VPS重装系统之后还要重新发Ticket。
+
+2.iptables_nat模块支持
+这个模块检测方法不科学，仅供参考。如果有人能提供科学的检测方法，一定要告诉我哈。。
+命令
+`iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o venet0 -j MASQUERADE`
+返回
+`iptables: Unknown error 4294967295`
+
+
+第二步：准备安装OpenVPN
+很多教程都是用yum安装，这样固然有好处，便于后期维护。但是缺点也很明显，无法打补丁，我需要打IPV6补丁，所以用编译安装。
+我这里以/data/src为源码路径
+```
+mkdir -p /data/src
+cd /data/src
+wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.05.tar.gz
+wget http://swupdate.openvpn.net/community/releases/openvpn-2.2.0.tar.gz
+wget https://github.com/downloads/jjo/openvpn-ipv6/openvpn-2.2.0-ipv6-0.4.16.patch.gz --no-check-certificate
+```
+安装openvpn所需环境openssl和gcc
+```
+yum install -y openssl-devel gcc
+```
+
+
+第三步：解压缩，打补丁，安装openvpn。
+先安装lzo
+```
+tar zxvf lzo-2.05.tar.gz
+cd lzo-2.05
+./configure &amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp; make &amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp; make install
+cd ..
+```
+解压缩openvpn并打补丁
+```
+tar zxvf openvpn-2.2.0.tar.gz
+gzip -d openvpn-2.2.0-ipv6-0.4.16.patch.gz
+mv openvpn-2.2.0-ipv6-0.4.16.patch openvpn-2.2.0
+cd openvpn-2.2.0
+patch -p1 &amp;amp;amp;amp;lt; openvpn-2.2.0-ipv6-0.4.16.patch
+```
+安装
+```
+./configure &amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp; make &amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp; make install
+mkdir -p /etc/openvpn
+cp -r ./easy-rsa/ /etc/openvpn
+cp -r ./sample-config-files/server.conf /etc/openvpn/2.0/conf/server.conf
+```
+
+
+第四步，生成证书并更改配置文件
+1.生成证书颁发机构(CA)
+```
+cd /etc/openvpn/2.0/
+./clean-all
+./build-ca
+```
+2.建立server key，一路拍回车，出现y/n的时候拍y即可。
+` ./build-key-server server`
+3.生成客户端 key，client为客户端名，可修改一路拍回车，出现y/n的时候拍y即可。
+` ./build-key client`
+4.生成Diffie Hellman参数
+` ./build-dh```
+如果这里发生错误，请尝试：
+`openssl dhparam -out ./keys/dh1024.pem 1024`
+5.修改配置文件
+`vi /etc/openvpn/2.0/conf/server.conf`
+将里边的
+```
+port 改为 53
+
+ca ca.crt
+cert server.crt
+key server.key  # This file should be kept secret
+dh dh1024.pem
+```
+后边的文件改为绝对路径
+;push "redirect-gateway def1 bypass-dhcp"
+前边的注释;删掉
+
+给出一个使用53端口UDP协议的参考配置
+```
+port 53
+proto udp
+dev tun
+ca /etc/openvpn/2.0/keys/ca.crt
+cert /etc/openvpn/2.0/keys/server.crt
+key /etc/openvpn/2.0/keys/server.key
+dh /etc/openvpn/2.0/keys/dh1024.pem
+server 10.8.0.0 255.255.255.0
+ifconfig-pool-persist ipp.txt
+push &amp;amp;quot;redirect-gateway def1 bypass-dhcp&amp;amp;quot;
+keepalive 10 120
+comp-lzo
+persist-key
+persist-tun
+verb 3
+```
+
+
+第五步，启动openvpn，开启nat转发
+`openvpn --config /etc/openvpn/2.0/conf/server.conf`
+开启nat转发
+`iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE`
+如果不设置，你连上后只能在你和VPS之间建立VPN，在这里，10.8.0.0为server.conf里边server中的IP段。
+到这里，openvpn服务器端的架设就结束了。
+
+当然，想要让客户端连接上服务器，还需要在客户端上进行简单配置。
+首先进入服务器/etc/openvpn/2.0/keys目录，将证书打包
+```
+cd /etc/openvpn/2.0/keys
+find ./ -name &amp;amp;quot;*.crt&amp;amp;quot; -or -name &amp;amp;quot;*.key&amp;amp;quot; -not -name &amp;amp;quot;server.key&amp;amp;quot; -not -name &amp;amp;quot;c.key&amp;amp;quot; | xargs tar czvf keys.tar.gz
+```
+然后把keys.tar.gz下载到客户端上就可以了
+客户端配置样例
+```
+client
+remote ip 53
+dev tun
+proto udp
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+ca ca.crt
+cert client.crt
+key client.key
+ns-cert-type server
+comp-lzo
+route-delay 2
+route-method exe
+verb 3
+```
+用openvpn打开就OK啦。

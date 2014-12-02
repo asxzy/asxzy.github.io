@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>利用Chi**Net、CMCC等热点认证系统隧道上网。科学上网之53UDP</title>
+  <meta name="description" content="先来说说怎么利用ChinaNet、CMCC免费上网。ChinaNet和CMCC都是基于页面认证的上网，要让客户端使用页面认证上网，就必须开通DNS服务和80端口，其中，DNS是udp53端口，网页是80端口，但是客户端上访问80端口就会被路由器重定向，但使用DNS服务器正常，也就是说，udp53端口有国际权限。通...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="asxzy.net/2011/05/18/53udp.html">
+  <link rel="alternate" type="application/atom+xml" title="asxzy Blog" href="asxzy.net/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">asxzy Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">利用Chi**Net、CMCC等热点认证系统隧道上网。科学上网之53UDP</h1>
+    <p class="post-meta">May 18, 2011</p>
+  </header>
+
+  <article class="post-content">
+    <p>先来说说怎么利用ChinaNet、CMCC免费上网。
+ChinaNet和CMCC都是基于页面认证的上网，要让客户端使用页面认证上网，就必须开通DNS服务和80端口，其中，DNS是udp53端口，网页是80端口，但是客户端上访问80端口就会被路由器重定向，但使用DNS服务器正常，也就是说，udp53端口有国际权限。通过这一点，我们可以使用udp53端口来建立VPN，从而实现免费上网。</p>
+
+<p>VPS上架设OpenVPN的教程多如牛毛，在此我就不详述了，记个流水帐，以便模仿与被模仿。</p>
+
+<p>第一步：检测环境。
+1.TUN支持。
+OpenVPN需要TUN支持
+用这个命令检测：
+<code>cat /dev/net/tun</code></p>
+
+<p>如果返回信息为：
+<code>cat: /dev/net/tun: File descriptor in bad state</code>
+说明VPS支持TUN，否则给vps公司法Ticket，有的VPS重装系统之后还要重新发Ticket。</p>
+
+<p>2.iptables_nat模块支持
+这个模块检测方法不科学，仅供参考。如果有人能提供科学的检测方法，一定要告诉我哈。。
+命令
+<code>iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o venet0 -j MASQUERADE</code>
+返回
+<code>iptables: Unknown error 4294967295</code></p>
+
+<p>第二步：准备安装OpenVPN
+很多教程都是用yum安装，这样固然有好处，便于后期维护。但是缺点也很明显，无法打补丁，我需要打IPV6补丁，所以用编译安装。
+我这里以/data/src为源码路径
+<code>
+mkdir -p /data/src
+cd /data/src
+wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.05.tar.gz
+wget http://swupdate.openvpn.net/community/releases/openvpn-2.2.0.tar.gz
+wget https://github.com/downloads/jjo/openvpn-ipv6/openvpn-2.2.0-ipv6-0.4.16.patch.gz --no-check-certificate
+</code>
+安装openvpn所需环境openssl和gcc
+<code>
+yum install -y openssl-devel gcc
+</code></p>
+
+<p>第三步：解压缩，打补丁，安装openvpn。
+先安装lzo
+<code>
+tar zxvf lzo-2.05.tar.gz
+cd lzo-2.05
+./configure &amp;amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp;amp; make &amp;amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp;amp; make install
+cd ..
+</code>
+解压缩openvpn并打补丁
+<code>
+tar zxvf openvpn-2.2.0.tar.gz
+gzip -d openvpn-2.2.0-ipv6-0.4.16.patch.gz
+mv openvpn-2.2.0-ipv6-0.4.16.patch openvpn-2.2.0
+cd openvpn-2.2.0
+patch -p1 &amp;amp;amp;amp;amp;lt; openvpn-2.2.0-ipv6-0.4.16.patch
+</code>
+安装
+<code>
+./configure &amp;amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp;amp; make &amp;amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp;amp; make install
+mkdir -p /etc/openvpn
+cp -r ./easy-rsa/ /etc/openvpn
+cp -r ./sample-config-files/server.conf /etc/openvpn/2.0/conf/server.conf
+</code></p>
+
+<p>第四步，生成证书并更改配置文件
+1.生成证书颁发机构(CA)
+<code>
+cd /etc/openvpn/2.0/
+./clean-all
+./build-ca
+</code>
+2.建立server key，一路拍回车，出现y/n的时候拍y即可。
+` ./build-key-server server<code>
+3.生成客户端 key，client为客户端名，可修改一路拍回车，出现y/n的时候拍y即可。
+</code> ./build-key client<code>
+4.生成Diffie Hellman参数
+</code> ./build-dh<code>
+如果这里发生错误，请尝试：
+`openssl dhparam -out ./keys/dh1024.pem 1024`
+5.修改配置文件
+`vi /etc/openvpn/2.0/conf/server.conf`
+将里边的
+</code>
+port 改为 53</p>
+
+<p>ca ca.crt
+cert server.crt
+key server.key  # This file should be kept secret
+dh dh1024.pem
+```
+后边的文件改为绝对路径
+;push “redirect-gateway def1 bypass-dhcp”
+前边的注释;删掉</p>
+
+<p>给出一个使用53端口UDP协议的参考配置
+<code>
+port 53
+proto udp
+dev tun
+ca /etc/openvpn/2.0/keys/ca.crt
+cert /etc/openvpn/2.0/keys/server.crt
+key /etc/openvpn/2.0/keys/server.key
+dh /etc/openvpn/2.0/keys/dh1024.pem
+server 10.8.0.0 255.255.255.0
+ifconfig-pool-persist ipp.txt
+push &amp;amp;amp;quot;redirect-gateway def1 bypass-dhcp&amp;amp;amp;quot;
+keepalive 10 120
+comp-lzo
+persist-key
+persist-tun
+verb 3
+</code></p>
+
+<p>第五步，启动openvpn，开启nat转发
+<code>openvpn --config /etc/openvpn/2.0/conf/server.conf</code>
+开启nat转发
+<code>iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE</code>
+如果不设置，你连上后只能在你和VPS之间建立VPN，在这里，10.8.0.0为server.conf里边server中的IP段。
+到这里，openvpn服务器端的架设就结束了。</p>
+
+<p>当然，想要让客户端连接上服务器，还需要在客户端上进行简单配置。
+首先进入服务器/etc/openvpn/2.0/keys目录，将证书打包
+<code>
+cd /etc/openvpn/2.0/keys
+find ./ -name &amp;amp;amp;quot;*.crt&amp;amp;amp;quot; -or -name &amp;amp;amp;quot;*.key&amp;amp;amp;quot; -not -name &amp;amp;amp;quot;server.key&amp;amp;amp;quot; -not -name &amp;amp;amp;quot;c.key&amp;amp;amp;quot; | xargs tar czvf keys.tar.gz
+</code>
+然后把keys.tar.gz下载到客户端上就可以了
+客户端配置样例
+<code>
+client
+remote ip 53
+dev tun
+proto udp
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+ca ca.crt
+cert client.crt
+key client.key
+ns-cert-type server
+comp-lzo
+route-delay 2
+route-method exe
+verb 3
+</code>
+用openvpn打开就OK啦。</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">asxzy Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>asxzy Blog</li>
+          <li><a href="mailto:asxzy@asxzy.net">asxzy@asxzy.net</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/asxzy">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">asxzy</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/asxzy">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">asxzy</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
